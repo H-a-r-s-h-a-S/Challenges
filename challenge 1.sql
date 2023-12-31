@@ -1,3 +1,9 @@
+-- https://www.linkedin.com/posts/gauravowlcity_flipkart-sql-analytics-activity-7135874024051535872-VLH6?utm_source=share&utm_medium=member_ios
+
+-- Table - Movie_Seats
+-- Columns - Seat_no, Occupant_gender
+-- Task - Design a SQL code to see if there are more than 3 consecutive males sitting together.
+
 use challenges ;
 
 drop table if exists movie_seats ;

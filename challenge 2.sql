@@ -1,3 +1,9 @@
+-- https://www.linkedin.com/posts/gauravowlcity_swiggy-sql-analytics-activity-7136315499075825664-VXa-?utm_source=share&utm_medium=member_ios
+
+-- Table - Order_Fact
+-- Columns - Order_ID, Order_status (delivered, approved, cancelled, returned), Order_date
+-- Task - Write a sql query to Fetch month on month return rate 
+
 use challenges ;
 
 drop table if exists order_fact ;
