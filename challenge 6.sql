@@ -18,11 +18,11 @@ insert into namaste_python values ('python bootcamp1.txt','python for data analy
 drop procedure if exists split_to_table ;
 
 delimiter $$ 
-create procedure split_to_table(str text)
+create procedure split_to_table(str text, sep char)
 begin
 drop table if exists tmp ;
 create temporary table tmp (`word` varchar(100) ) ;
-set @s = replace(str,'|',' ') ;
+set @s = replace(str,sep,' ') ;
 set @tmp = '' ;
 set @i = 1;
   loop1: loop
@@ -40,8 +40,8 @@ set @i = 1;
 end $$
 delimiter ;
 
-set @contents = (select group_concat(content separator ' ') from namaste_python) ;
+set @contents = (select group_concat(content separator '|') from namaste_python) ;
 
-call split_to_table(@contents) ;
+call split_to_table(@contents, '|') ;
 
 select word value, count(1) count_of_word from tmp group by word having count(1) > 1;
