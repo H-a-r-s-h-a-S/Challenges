@@ -4,6 +4,8 @@
 -- Columns - Seat_no, Occupant_gender
 -- Task - Design a SQL code to see if there are more than 3 consecutive males sitting together.
 
+drop database if exists challenges ;
+create schema challenges ;
 use challenges ;
 
 drop table if exists movie_seats ;
