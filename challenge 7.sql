@@ -39,4 +39,4 @@ insert into sales (product_id, year, total_sales_revenue) values
 
 with tmp as (select *, lag(total_sales_revenue) over(partition by product_id order by year) lg from sales)
 select * from products p 
-where not exists (select 1 from tmp t where (t.total_sales_revenue - t.lg)  < 0 and t.product_id=p.product_id) ;
+where not exists (select 1 from tmp t where (t.total_sales_revenue - t.lg)  <= 0 and t.product_id=p.product_id) ;
