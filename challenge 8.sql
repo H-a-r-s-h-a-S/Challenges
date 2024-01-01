@@ -36,13 +36,13 @@ CREATE FUNCTION `business_days` (start_date date, end_date date)
 RETURNS int
 DETERMINISTIC
 BEGIN
-set @days = (select datediff(end_date, start_date) - (select count(*) from holidays where holiday_date between start_date and end_date and dayofweek(holiday_date) not in (6,7))) ;
-RETURN @days ;
+set @weekends = (select datediff(end_date, start_date) div 7) ;
+set @total_days = (select datediff(end_date, start_date)) ;
+set @holidays = (select count(*) from holidays where holiday_date between start_date and end_date and dayofweek(holiday_date) not in (6,7)) ;
+set @business_days = @total_days - @holidays - 2*@weekends ;
+RETURN @business_days ;
 END;
 |
 DELIMITER ;
 
 select *, business_days(create_date, resolved_date) as `business_days` from tickets ;
-
--- or simply
-select *, (select datediff(resolved_date, create_date) - (select count(*) from holidays where holiday_date between create_date and resolved_date and dayofweek(holiday_date) not in (6,7))) business_days from tickets ;
