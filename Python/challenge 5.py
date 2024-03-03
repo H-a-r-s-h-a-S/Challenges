@@ -9,7 +9,7 @@ emp_data = [
 	("Frank", 38),
 	("Grace", 45),
 	("Henry", 29)
-	]
+]
 
 emp_schema = "name string , age int"
  

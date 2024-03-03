@@ -12,6 +12,7 @@ schema = StructType(
 
     ]
 )
+
 data = [
     (1, 1, 'Clicked'),
     (2, 2, 'Clicked'),

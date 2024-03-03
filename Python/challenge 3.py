@@ -3,7 +3,13 @@
 # Write a solution to swap the seat id of every two consecutive students.
 # If the number is odd, the id of the last student is not swapped.
 
-_data = [(1,'Abbot'),(2,'Doris'),(3,'Emerson'),(4,'Green'),(5,'Jeames')]
+_data = [
+	(1,'Abbot'),
+	(2,'Doris'),
+	(3,'Emerson'),
+	(4,'Green'),
+	(5,'Jeames')
+]
 
 _schema = ['id', 'student']
 
